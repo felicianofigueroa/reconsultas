@@ -1,0 +1,30 @@
+<?php
+
+class Catalogo extends Controller{
+    function __construct(){
+        parent::__construct();
+        //$this->view->mensaje = "Hay un error al cargar el recurso";
+        
+        //echo "<p>Controlador Index</p>";
+    }
+
+    function render(){
+        $this->view->render('catalogo/index');
+    }
+
+    function saludo(){
+        echo "<p>Hola a todos<p>";
+    }
+    
+    public function search_rfc($param = null){
+        $rfc = $param[0];
+        $paciente = $this->model->getBYRFC($rfc);
+    }
+
+    public function registrar(){
+        $paciente = $this->model->insert();
+        
+    }
+}
+
+?>
